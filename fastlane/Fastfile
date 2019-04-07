@@ -23,4 +23,12 @@ concat(".ipa"),
           slack_url: "https://hooks.slack.com/services/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"
       )
   end
+  lane :mail_message do
+      mailgun(
+      to: "magdy.kamal@apptcom.com",
+      success: true,
+      message: "This is the mail's content"
+      )
+  end
+  
 end
