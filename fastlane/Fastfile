@@ -29,6 +29,11 @@ concat(".ipa"),
       success: true,
       message: "This is the mail's content"
       )
+      mailgun(
+      to: "ahmed.nour@apptcom.com",
+      success: true,
+      message: "This is the mail's content"
+      )
   end
   
 end
