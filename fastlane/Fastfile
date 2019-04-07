@@ -16,4 +16,11 @@ platform :ios do
 concat(".ipa"),
     )
   end
+  lane :slack_message do
+      slack(
+          message: "App successfully uploaded to iTunesConnect.",
+          success: true,
+          slack_url: "https://hooks.slack.com/services/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"
+      )
+  end
 end
