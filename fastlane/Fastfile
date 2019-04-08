@@ -1,10 +1,22 @@
 xcversion(version: "10.1") 
 xcode_select "/Applications/Xcode.app"
 default_platform(:ios)
+generated_fastfile_id "4303a121-f78f-4d6e-bb25-8c35c502949c"
 
 platform :ios do
   desc "Description of what the lane does"
  
+ lane :beta do
+  # build your iOS app
+  build_app(
+    # scheme: "JenkensTest",
+    export_method: "app-store"
+  )
+
+  # upload to Testflight
+  pilot(skip_waiting_for_build_processing: true)
+end
+
   lane :generate_ipa_develop do
     build_ios_app(
       configuration: "Release",
