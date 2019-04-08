@@ -8,17 +8,17 @@ platform :ios do
  
  lane :beta do
   # build your iOS app
-  build_app(
-    scheme: "JenkensTest",
-    export_method: "ad-hoc"
-  )
+ # build_app(
+  #  scheme: "JenkensTest",
+  #  export_method: "ad-hoc"
+  #)
 
   # upload to Testflight
-   crashlytics(
-    api_token: "f4f66007d3a682ab7a6ecb4cd66aeacc886be80b",
-    build_secret: "e38d42eda67f4cedde95f0e2577e939dc2e8cefed98c1999bdc5290f045c6c37",
-    notes => File.read("../Changelog.txt")
-  )
+  # crashlytics(
+  #  api_token: "f4f66007d3a682ab7a6ecb4cd66aeacc886be80b",
+   # build_secret: "e38d42eda67f4cedde95f0e2577e939dc2e8cefed98c1999bdc5290f045c6c37",
+    #notes => File.read("../Changelog.txt")
+  #)
 
   build_app(
     scheme: "JenkensTest",
