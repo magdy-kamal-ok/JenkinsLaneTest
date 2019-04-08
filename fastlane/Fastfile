@@ -27,6 +27,7 @@ platform :ios do
 
 pilot(
      username: "ahmed.nour@apptcom.com",
+     password: "AppTcom2018",
      skip_submission: true
      )
   #pilot(skip_waiting_for_build_processing: true)
