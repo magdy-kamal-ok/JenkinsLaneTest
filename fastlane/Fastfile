@@ -25,7 +25,11 @@ platform :ios do
     export_method: "app-store"
   )
 
-  pilot(skip_waiting_for_build_processing: true)
+pilot(
+     username: "ahmed.nour@apptcom.com",
+     skip_submission: true
+     )
+  #pilot(skip_waiting_for_build_processing: true)
 end
 
   lane :generate_ipa_develop do
