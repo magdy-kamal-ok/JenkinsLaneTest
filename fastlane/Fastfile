@@ -19,7 +19,7 @@ platform :ios do
    # build_secret: "e38d42eda67f4cedde95f0e2577e939dc2e8cefed98c1999bdc5290f045c6c37",
     #notes => File.read("../Changelog.txt")
   #)
- 
+
   build_app(
     scheme: "JenkensTest",
     export_method: "app-store"
