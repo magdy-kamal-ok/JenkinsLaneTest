@@ -1,0 +1,16 @@
+App: JenkinsTest
+App version: 1.1.0.31
+Release: May release
+Prepared by: Magdy Kamal & Ahmed Nour 
+Environment: Debug/Staging/Production
+Target audience: Internal/Client
+Target OS: IOS
+In scope:
+- Story GAT-91
+- Story GAT-92
+- Bug GAT-342
+- Home refactoring
+Out of scope/Known issues:
+- Cancel button UI in Story GAT-91
+Impact:
+- Home screen

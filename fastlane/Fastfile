@@ -16,7 +16,8 @@ platform :ios do
   # upload to Testflight
    crashlytics(
     api_token: "f4f66007d3a682ab7a6ecb4cd66aeacc886be80b",
-    build_secret: "e38d42eda67f4cedde95f0e2577e939dc2e8cefed98c1999bdc5290f045c6c37"
+    build_secret: "e38d42eda67f4cedde95f0e2577e939dc2e8cefed98c1999bdc5290f045c6c37",
+    notes : File.read("../Changelog.txt")
   )
 
   build_app(
@@ -41,10 +42,17 @@ concat(".ipa"),
   after_all do |lane|
  #lane :slack_message do
       slack(
-          message: "App successfully uploaded to iTunesConnect.",
-          success: true,
-          slack_url: "https://hooks.slack.com/services/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"
-      )
+            message: "App successfully released to Fabric Beta",
+            slack_url: "https://hooks.slack.com/services/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",
+            success: true,        
+            # Optional,defaults to true.
+            payload: {  # Optional, lets you specify any number of your own Slack attachments.
+            "Build Date" => Time.new.to_s,
+            "Release notes" => File.read("../Changelog.txt")
+        },
+        default_payloads: [], # Optional, lets you specify a whitelist of default payloads to include. Pass an empty array to suppress all the default payloads.
+        # Don't add this key, or pass nil, if you want all the default payloads. The available default payloads are: `lane`, `test_result`, `git_branch`, `git_author`, `last_git_commit`, `last_git_commit_hash`.
+       )
   end
   lane :mail_message do
       mailgun(
