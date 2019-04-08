@@ -18,6 +18,13 @@ platform :ios do
     api_token: "f4f66007d3a682ab7a6ecb4cd66aeacc886be80b",
     build_secret: "e38d42eda67f4cedde95f0e2577e939dc2e8cefed98c1999bdc5290f045c6c37"
   )
+
+  build_app(
+    scheme: "JenkensTest",
+    export_method: "app-store"
+  )
+
+  pilot(skip_waiting_for_build_processing: true)
 end
 
   lane :generate_ipa_develop do
@@ -31,7 +38,8 @@ end
 concat(".ipa"),
     )
   end
-  lane :slack_message do
+  after_all do |lane|
+ #lane :slack_message do
       slack(
           message: "App successfully uploaded to iTunesConnect.",
           success: true,
