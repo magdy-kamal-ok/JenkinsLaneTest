@@ -12,6 +12,9 @@ platform :ios do
 identifier = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
 team_id = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
 
+ match(
+      readonly: true
+    )
     increment_build_number(
       build_number: latest_testflight_build_number() + 1,
       xcodeproj: "./JenkensTest.xcodeproj"
