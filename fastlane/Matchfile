@@ -11,7 +11,7 @@ type("development") # The default type, can be: appstore, adhoc, enterprise or d
 # Remove the # in the beginning of the line to enable the other options
 
 # The docs are available on https://docs.fastlane.tools/actions/match
-
+type("appstore")
 app_identifier "com.apptcom.JenkinsTestABC"
 username "ahmed.nour@apptcom.com" #This will be the git username
 shallow_clone true
