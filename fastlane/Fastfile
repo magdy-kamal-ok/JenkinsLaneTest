@@ -13,10 +13,7 @@ match(type:"appstore")
  match(
       readonly: false
     )
-    increment_build_number(
-      build_number: 10,
-      xcodeproj: "./JenkensTest.xcodeproj"
-    )
+    
 
     # Build the application using the
     # specified scheme.
