@@ -4,6 +4,65 @@ default_platform(:ios)
 generated_fastfile_id "4303a121-f78f-4d6e-bb25-8c35c502949c"
 
 platform :ios do
+
+  before_all do
+    ENV["FASTLANE_DONT_STORE_PASSWORD"] = "1"
+    ENV["FASTLANE_USER"] = ""
+    ENV["FASTLANE_PASSWORD"] = ""
+  end
+  
+  desc "Description of what the lane does"
+ 
+ lane :beta do
+
+identifier = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+team_id = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
+
+  keychain_name = ENV["MATCH_KEYCHAIN_NAME"]
+    keychain_password = ENV["MATCH_KEYCHAIN_PASSWORD"]
+
+    # Create a temporary keychain to 
+    # store the certificates.
+    create_keychain(
+      name: keychain_name,
+      password: keychain_password,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true
+    )
+
+    # Fetch the necessary certificates and 
+    # provisioning profiles.
+    match(
+      keychain_name: keychain_name,
+      keychain_password: keychain_password,
+      readonly: true
+    )
+    
+    # Increment the build number using the
+    # latest Testflight build number.
+    increment_build_number(
+      build_number: latest_testflight_build_number() + 1,
+      xcodeproj: "./JenkensTest.xcodeproj"
+    )
+
+    # Build the application using the
+    # specified scheme.
+    build_app(scheme: "JenkensTest")
+
+    # Upload the application to Testflight
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true
+    )
+
+    # Remove the temporary keychain leaving
+    # no trace.
+    delete_keychain(
+      name: keychain_name
+    )
+end
+platform :ios do
   desc "Description of what the lane does"
  
  lane :beta do
