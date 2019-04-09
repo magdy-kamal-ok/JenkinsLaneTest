@@ -13,8 +13,8 @@ type("development") # The default type, can be: appstore, adhoc, enterprise or d
 # The docs are available on https://docs.fastlane.tools/actions/match
 
 app_identifier "com.apptcom.JenkinsTestABC"
-username "magdy.kamal.ok@gmail.com" #This will be the git username
+username "ahmed.nour@apptcom.com" #This will be the git username
 shallow_clone true
 force_for_new_devices true
-ENV["FASTLANE_PASSWORD"] = "asd1738205" #Password to access git repo.
+ENV["FASTLANE_PASSWORD"] = "AppTcom2018" #Password to access git repo.
 ENV["MATCH_PASSWORD"] = "asd1738205" #Password for the .p12 files saved in git repo.
