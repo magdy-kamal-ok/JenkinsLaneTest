@@ -17,3 +17,4 @@ username "magdy.kamal.ok@gmail.com" #This will be the git username
 shallow_clone true
 force_for_new_devices true
 ENV["FASTLANE_PASSWORD"] = "asd1738205" #Password to access git repo.
+ENV["MATCH_PASSWORD"] = "asd1738205" #Password for the .p12 files saved in git repo.
