@@ -9,8 +9,9 @@ platform :ios do
  
  lane :beta do
 
+match(type:"appstore")
  match(
-      readonly: true
+      readonly: false
     )
     increment_build_number(
       build_number: latest_testflight_build_number() + 1,
